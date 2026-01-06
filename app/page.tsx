@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Star, Code, Users, BookOpen, Heart, ArrowRight } from "lucide-react"
+import { NumberTicker } from "@/components/ui/number-ticker"
 
 export default function HomePage() {
   return (
@@ -22,6 +23,9 @@ export default function HomePage() {
               <Link href="/about" className="text-gray-700 hover:text-gray-700 transition-colors font-light">
                 About
               </Link>
+              <Link href="/donate" className="text-gray-700 hover:text-gray-700 transition-colors font-light">
+                Donate
+              </Link>
               <Link href="#impact" className="text-gray-700 hover:text-gray-700 transition-colors font-light">
                 Impact
               </Link>
@@ -31,62 +35,43 @@ export default function HomePage() {
             </div>
 
             <Button className="bg-green-800 hover:bg-green-900 text-white font-light" asChild>
-              <Link href="/programs">Join Our Mission</Link>
+              <Link href="/join">Join Our Mission</Link>
             </Button>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="py-12 lg:py-20">
+      <section className="relative pt-20 pb-20 lg:pt-32 lg:pb-32 overflow-hidden">
+        {/* Background Gradients */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-green-200/40 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-teal-200/40 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2"></div>
+        </div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-green-800 rounded-3xl overflow-hidden">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center p-8 lg:p-12">
-              <div className="text-white">
-                <div className="flex items-center space-x-1 mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                  ))}
-                  <span className="ml-2 text-sm font-light">Loved by our students and community</span>
-                </div>
+          <div className="text-center max-w-4xl mx-auto">
+            <div className="inline-flex items-center space-x-2 bg-white/50 backdrop-blur-sm border border-green-100 rounded-full px-4 py-1.5 mb-8 shadow-sm">
+              <span className="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+              <span className="text-sm font-medium text-green-800 tracking-tight">Trusted by over 100+ countries</span>
+            </div>
 
-                <h1 className="text-4xl lg:text-5xl font-light mb-6 leading-tight tracking-tight">
-                  Hey there! Ready to learn coding while making your community stronger?
-                </h1>
+            <h1 className="text-5xl lg:text-7xl font-medium text-gray-900 mb-8 leading-[1.1] tracking-tight">
+              Learn to code. <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-teal-600">Change the world.</span>
+            </h1>
 
-                <p className="text-xl mb-8 text-green-200 leading-relaxed font-light">
-                  Here's the thing - we're not your typical coding bootcamp. Every course you take helps fund local
-                  charities. We believe learning should create ripples of positive change that extend far beyond your
-                  laptop screen.
-                </p>
+            <p className="text-xl lg:text-2xl text-gray-600 mb-10 leading-relaxed font-light max-w-2xl mx-auto">
+              We're a non-profit coding bootcamp where your education funds local charities. Master modern tech skills while making a real difference.
+            </p>
 
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button size="lg" className="bg-green-700 hover:bg-green-800 text-white font-light" asChild>
-                    <Link href="#courses">Start Your Journey</Link>
-                  </Button>
-                  <Button size="lg" className="bg-green-700 hover:bg-green-800 text-white font-light" asChild>
-                    <Link href="/about">Our Story</Link>
-                  </Button>
-                </div>
-              </div>
-
-              <div className="relative">
-                <div className="bg-white rounded-2xl overflow-hidden shadow-2xl">
-                  <div className="h-48 relative">
-                    <Image src="/coding-laptop.jpg" alt="Coding on laptop" fill className="object-cover" />
-                    <div className="absolute inset-0 bg-green-900/20"></div>
-                  </div>
-                  <div className="p-8 text-center">
-                    <div className="flex items-center justify-center mb-4">
-                      <Code className="w-8 h-8 text-green-700 mr-2" />
-                      <Heart className="w-8 h-8 text-red-500" />
-                      <Users className="w-8 h-8 text-green-700 ml-2" />
-                    </div>
-                    <h3 className="text-xl font-medium text-gray-800 mb-2 tracking-tight">Code. Give. Impact.</h3>
-                    <p className="text-gray-600 font-light">Where technology meets compassion</p>
-                  </div>
-                </div>
-              </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button size="lg" className="h-14 px-8 rounded-full bg-gray-900 hover:bg-gray-800 text-white text-lg font-medium shadow-xl hover:shadow-2xl transition-all duration-300" asChild>
+                <Link href="#courses">Start Learning Free</Link>
+              </Button>
+              <Button size="lg" variant="outline" className="h-14 px-8 rounded-full border-gray-200 hover:bg-white hover:border-gray-300 text-gray-900 text-lg font-medium bg-white/50 backdrop-blur-sm shadow-sm transition-all duration-300" asChild>
+                <Link href="/about">How It Works</Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -97,15 +82,21 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div className="bg-white rounded-xl p-6 shadow-sm">
-              <div className="text-3xl font-light text-gray-800 mb-2 tracking-tight">500+</div>
+              <div className="text-3xl font-light text-gray-800 mb-2 tracking-tight">
+                <NumberTicker value={1500} suffix="+" />
+              </div>
               <p className="text-gray-600 font-light">students have started their coding journey with us</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
-              <div className="text-3xl font-light text-gray-800 mb-2 tracking-tight">52+</div>
+              <div className="text-3xl font-light text-gray-800 mb-2 tracking-tight">
+                <NumberTicker value={100} suffix="+" />
+              </div>
               <p className="text-gray-600 font-light">countries reached through our programs</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
-              <div className="text-3xl font-light text-gray-800 mb-2 tracking-tight">42+</div>
+              <div className="text-3xl font-light text-gray-800 mb-2 tracking-tight">
+                <NumberTicker value={4000} suffix="+" />
+              </div>
               <p className="text-gray-600 font-light">hours of quality education delivered</p>
             </div>
           </div>
@@ -333,108 +324,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <Image src="/codewp-logo.png" alt="CodeWithPurpose Logo" width={24} height={24} className="w-6 h-6" />
-                <span className="text-lg font-medium tracking-tight">CodeWithPurpose</span>
-              </div>
-              <p className="text-gray-400 font-light">
-                Where learning meets giving. Every course creates ripples of positive change.
-              </p>
-            </div>
 
-            <div>
-              <h4 className="font-medium mb-4">Learn</h4>
-              <ul className="space-y-2 text-gray-400 font-light">
-                <li>
-                  <Link href="/programs" className="hover:text-white transition-colors">
-                    All Programs
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Python Course
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Vibecoding 101
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Student Stories
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-medium mb-4">Community</h4>
-              <ul className="space-y-2 text-gray-400 font-light">
-                <li>
-                  <Link href="/about" className="hover:text-white transition-colors">
-                    Our Mission
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Impact Report
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Partner Charities
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Volunteer
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-medium mb-4">Connect</h4>
-              <ul className="space-y-2 text-gray-400 font-light">
-                <li>
-                  <Link href="/contact" className="hover:text-white transition-colors">
-                    Get in Touch
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Newsletter
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="https://www.linkedin.com/company/codewithpurpose"
-                    target="_blank"
-                    className="hover:text-white transition-colors"
-                  >
-                    LinkedIn
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Support
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 font-light">
-            <p>&copy; 2024 CodeWithPurpose. Made with ❤️ for communities everywhere.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }

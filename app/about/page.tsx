@@ -2,8 +2,37 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Heart, Users, Target, ArrowLeft } from "lucide-react"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 export default function AboutPage() {
+  const teamMembers = [
+    {
+      name: "Samanyu Goyal",
+      role: "Chief Operations Officer",
+      description: "Focused on spreading awareness about our mission and connecting with communities to maximize our educational and charitable impact.",
+      initials: "SG",
+      color: "bg-blue-100",
+      textColor: "text-blue-800",
+    },
+    {
+      name: "Bruhaat Rao",
+      role: "Co-Founder",
+      description: "Dedicated to empowering learners through innovative educational approaches and fostering a community-driven learning environment.",
+      initials: "BR",
+      color: "bg-teal-100",
+      textColor: "text-teal-800",
+    },
+    {
+      name: "Shreyan Mitra",
+      role: "Co-Founder",
+      description: "Passionate about creating accessible coding education and building meaningful connections between technology and community impact.",
+      initials: "SM",
+      color: "bg-green-100",
+      textColor: "text-green-800",
+    },
+  ]
+
   return (
     <div className="min-h-screen bg-gray-50 font-light tracking-tight antialiased">
       {/* Navigation */}
@@ -25,13 +54,16 @@ export default function AboutPage() {
               <Link href="/about" className="text-green-800 font-medium">
                 About
               </Link>
+              <Link href="/donate" className="text-gray-700 hover:text-green-800 transition-colors">
+                Donate
+              </Link>
               <Link href="/contact" className="text-gray-700 hover:text-green-800 transition-colors">
                 Contact
               </Link>
             </div>
 
             <Button className="bg-green-800 hover:bg-green-900 text-white" asChild>
-              <Link href="/">Join Our Mission</Link>
+              <Link href="/join">Join Our Mission</Link>
             </Button>
           </div>
         </div>
@@ -40,10 +72,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="py-16 lg:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/" className="inline-flex items-center text-green-800 hover:text-green-900 mb-8">
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Home
-          </Link>
+
 
           <div className="text-center mb-12">
             <h1 className="text-4xl lg:text-6xl font-medium text-gray-900 mb-6">What is CodeWithPurpose?</h1>
@@ -147,6 +176,40 @@ export default function AboutPage() {
                 dollar makes a real difference.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="py-16 lg:py-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-medium text-gray-900 mb-4">Our Leadership Team</h2>
+            <p className="text-xl text-green-600">The passionate individuals behind our mission</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {teamMembers.map((member) => (
+              <Card key={member.name} className="border-none shadow-lg hover:shadow-xl transition-shadow bg-white rounded-2xl overflow-hidden text-center">
+                <CardHeader className="pt-8 pb-4">
+                  <Avatar className={`mx-auto w-24 h-24 mb-6 ${member.color}`}>
+                    <AvatarImage src={`/${member.name.toLowerCase().replace(" ", "-")}.png`} alt={member.name} />
+                    <AvatarFallback className={`${member.textColor} text-3xl font-medium`}>
+                      {member.initials}
+                    </AvatarFallback>
+                  </Avatar>
+                  <CardTitle className="text-2xl font-medium text-gray-900">{member.name}</CardTitle>
+                  <p className="text-green-600 font-medium tracking-wide text-sm uppercase mt-1">
+                    {member.role}
+                  </p>
+                </CardHeader>
+                <CardContent className="pb-8 px-6">
+                  <p className="text-gray-600 leading-relaxed font-light">
+                    {member.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>

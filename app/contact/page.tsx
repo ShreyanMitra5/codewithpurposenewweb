@@ -25,13 +25,16 @@ export default function ContactPage() {
               <Link href="/about" className="text-green-700 hover:text-green-600 transition-colors font-medium">
                 About
               </Link>
+              <Link href="/donate" className="text-green-700 hover:text-green-600 transition-colors font-medium">
+                Donate
+              </Link>
               <Link href="/contact" className="text-green-600 font-semibold">
                 Contact
               </Link>
             </div>
 
             <Button className="bg-green-700 hover:bg-green-800 text-white font-medium" asChild>
-              <Link href="/">Join Our Mission</Link>
+              <Link href="/join">Join Our Mission</Link>
             </Button>
           </div>
         </div>
@@ -40,10 +43,7 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className="py-16 lg:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/" className="inline-flex items-center text-green-700 hover:text-green-800 mb-8 font-medium">
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Home
-          </Link>
+
 
           <div className="text-center mb-12">
             <h1 className="text-4xl lg:text-6xl font-bold text-green-900 mb-6">Let's Connect</h1>
