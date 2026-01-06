@@ -11,7 +11,7 @@ export function TeamNotePopup() {
         <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
             {/* The Popup Content */}
             <div
-                className={`bg-green-800 text-white p-6 rounded-2xl shadow-2xl mb-4 max-w-sm transition-all duration-300 origin-bottom-right ${isOpen ? "scale-100 opacity-100" : "scale-0 opacity-0 pointer-events-none"
+                className={`bg-green-800 text-white p-6 rounded-2xl shadow-2xl mb-4 w-[calc(100vw-3rem)] sm:w-96 transition-all duration-300 origin-bottom-right ${isOpen ? "scale-100 opacity-100" : "scale-0 opacity-0 pointer-events-none"
                     }`}
             >
                 <div className="flex justify-between items-start mb-4">

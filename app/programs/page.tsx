@@ -2,52 +2,13 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, Clock, Users, Award, ExternalLink } from "lucide-react"
+import { Navbar } from "@/components/navbar"
 
 export default function ProgramsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-2">
-              <Image src="/codewp-logo.png" alt="CodeWithPurpose Logo" width={32} height={32} className="w-8 h-8" />
-              <span className="text-xl font-bold text-teal-700">CodeWithPurpose</span>
-            </div>
-
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-green-700 hover:text-teal-600 transition-colors font-light tracking-tight">
-                Home
-              </Link>
-              <Link href="/programs" className="text-teal-600 font-medium font-light tracking-tight">
-                Programs
-              </Link>
-              <Link
-                href="/about"
-                className="text-green-700 hover:text-teal-600 transition-colors font-light tracking-tight"
-              >
-                About
-              </Link>
-              <Link
-                href="/donate"
-                className="text-green-700 hover:text-teal-600 transition-colors font-light tracking-tight"
-              >
-                Donate
-              </Link>
-              <Link
-                href="/contact"
-                className="text-green-700 hover:text-teal-600 transition-colors font-light tracking-tight"
-              >
-                Contact
-              </Link>
-            </div>
-
-            <Button className="bg-green-700 hover:bg-green-800 text-white" asChild>
-              <Link href="/join">Join Our Mission</Link>
-            </Button>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero Section */}
       <section className="py-16 lg:py-24">

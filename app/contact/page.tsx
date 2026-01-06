@@ -2,43 +2,13 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, Mail, MessageCircle, Heart } from "lucide-react"
+import { Navbar } from "@/components/navbar"
 
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-green-50">
       {/* Navigation */}
-      <nav className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-2">
-              <Image src="/codewp-logo.png" alt="CodeWithPurpose Logo" width={32} height={32} className="w-8 h-8" />
-              <span className="text-xl font-bold text-green-700">CodeWithPurpose</span>
-            </div>
-
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-green-700 hover:text-green-600 transition-colors font-medium">
-                Home
-              </Link>
-              <Link href="/programs" className="text-green-700 hover:text-green-600 transition-colors font-medium">
-                Programs
-              </Link>
-              <Link href="/about" className="text-green-700 hover:text-green-600 transition-colors font-medium">
-                About
-              </Link>
-              <Link href="/donate" className="text-green-700 hover:text-green-600 transition-colors font-medium">
-                Donate
-              </Link>
-              <Link href="/contact" className="text-green-600 font-semibold">
-                Contact
-              </Link>
-            </div>
-
-            <Button className="bg-green-700 hover:bg-green-800 text-white font-medium" asChild>
-              <Link href="/join">Join Our Mission</Link>
-            </Button>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero Section */}
       <section className="py-16 lg:py-24">
